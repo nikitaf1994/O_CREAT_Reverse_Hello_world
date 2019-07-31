@@ -27,13 +27,13 @@ int main() {
                 printf("Error open\n");
                 return 0;
         }
-	offset = lseek(fd1, 0, SEEK_END);    //end of the file
-        while (offset > 0) 
+	offset = lseek(fd1, 1, SEEK_END);    //end of the file
+	while (offset>0)
 	{
                 read(fd1, &c, 1);  //read symbol
                 write(1, &c, 1);  //write symbol
                 lseek(fd1, -2, SEEK_CUR);   //go back 
-                offset--;     
+        	offset--;
         }
 	close(fd1);
 	return 0;
